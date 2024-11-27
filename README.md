@@ -1,48 +1,71 @@
+
 # Udagram Image Filtering Microservice
 
-Udagram is a simple cloud application developed alongside the Udacity Cloud Engineering Nanodegree. It allows users to register and log into a web client, post photos to the feed, and process photos using an image filtering microservice.
+This project provides a Node.js-based microservice that allows users to filter images by applying simple filters. It is part of the Udacity Cloud Engineering Nanodegree and serves as an image-processing service for the Udagram cloud application.
 
-The project is split into three parts:
-1. [The Simple Frontend](https://github.com/udacity/cloud-developer/tree/master/course-02/exercises/udacity-c2-frontend)
-A basic Ionic client web application which consumes the RestAPI Backend. [Covered in the course]
-2. [The RestAPI Backend](https://github.com/udacity/cloud-developer/tree/master/course-02/exercises/udacity-c2-restapi), a Node-Express server which can be deployed to a cloud service. [Covered in the course]
-3. [The Image Filtering Microservice](https://github.com/udacity/cloud-developer/tree/master/course-02/project/image-filter-starter-code), the final project for the course. It is a Node-Express application which runs a simple script to process images. [Your assignment]
+## Features
 
-## Tasks
+- Allows users to upload images and apply filters.
+- Exposes a RESTful API for image processing.
+- Can be deployed using AWS Elastic Beanstalk.
 
-### Setup Node Environment
+## Setup Instructions
 
-You'll need to create a new node server. Open a new terminal within the project directory and run:
+### Prerequisites
 
-1. Initialize a new project: `npm i`
-2. run the development server with `npm run dev`
+- Node.js and npm installed on your system.
 
-### Create a new endpoint in the server.ts file
+### 1. Install Dependencies
 
-The starter code has a task for you to complete an endpoint in `./src/server.ts` which uses query parameter to download an image from a public URL, filter the image, and return the result.
+In the project directory, run:
 
-We've included a few helper functions to handle some of these concepts and we're importing it for you at the top of the `./src/server.ts`  file.
-
-```typescript
-import {filterImageFromURL, deleteLocalFiles} from './util/util';
+```bash
+npm install
 ```
 
-### Deploying your system
+### 2. Run the Development Server
 
-Follow the process described in the course to `eb init` a new application and `eb create` a new environment to deploy your image-filter service! Don't forget you can use `eb deploy` to push changes.
+To start the server locally, run:
 
-## Stand Out (Optional)
+```bash
+npm run dev
+```
 
-### Refactor the course RESTapi
+The server will be running at `http://localhost:8082` by default.
 
-If you're feeling up to it, refactor the course RESTapi to make a request to your newly provisioned image server.
+### 3. Image Filtering Endpoint
 
-### Authentication
+The microservice exposes an endpoint that allows you to filter images. To use it, make a request to:
 
-Prevent requests without valid authentication headers.
-> !!NOTE if you choose to submit this, make sure to add the token to the postman collection and export the postman collection file to your submission so we can review!
+```
+GET /filteredimage?image_url={URL}
+```
 
-### Custom Domain Name
+Where `{URL}` is the public URL of the image you want to filter.
 
-Add your own domain name and have it point to the running services (try adding a subdomain name to point to the processing server)
-> !NOTE: Domain names are not included in AWS’ free tier and will incur a cost.
+The microservice will:
+- Download the image from the provided URL.
+- Apply a filter to the image.
+- Return the filtered image.
+
+### 4. Deploying to AWS
+
+To deploy this microservice to AWS, follow these steps:
+
+1. Initialize Elastic Beanstalk for the project:
+
+   ```bash
+   eb init
+   ```
+
+2. Create a new environment:
+
+   ```bash
+   eb create
+   ```
+
+3. Deploy your service:
+
+   ```bash
+   eb deploy
+   ```

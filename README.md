@@ -1,7 +1,7 @@
 
-# Udagram Image Filtering Application
+# Udagram Image Filtering 
 
-This project provides a Node.js-based application that allows users to filter images by applying simple filters. It is part of the Udacity Cloud Engineering Nanodegree and serves as an image-processing service for the Udagram cloud application.
+This project provides a Node.js-based microservice that allows users to filter images by applying simple filters. It is part of the Udacity Cloud Engineering Nanodegree and serves as an image-processing service for the Udagram cloud application.
 
 ## Features
 

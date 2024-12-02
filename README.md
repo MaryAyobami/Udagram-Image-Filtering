@@ -33,18 +33,3 @@ npm run dev
 
 The server will be running at `http://localhost:8082` by default.
 
-### 3. Image Filtering Endpoint
-
-The microservice exposes an endpoint that allows you to filter images. To use it, make a request to:
-
-```
-GET /filteredimage?image_url={URL}
-```
-
-Where `{URL}` is the public URL of the image you want to filter.
-
-The microservice will:
-- Download the image from the provided URL.
-- Apply a filter to the image.
-- Return the filtered image.
-

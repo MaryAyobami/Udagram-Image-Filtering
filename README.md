@@ -43,9 +43,5 @@ GET /filteredimage?image_url={URL}
 
 Where `{URL}` is the public URL of the image you want to filter.
 
-The microservice will:
-- Download the image from the provided URL.
-- Apply a filter to the image.
-- Return the filtered image.
 
 
